@@ -1,0 +1,53 @@
+@use "src/styles/tokens";
+
+.root {
+  display: flex;
+  gap: tokens.$space-l;
+  justify-content: space-between;
+
+  @media screen and (max-width: 180ch) {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$space-m;
+  height: fit-content;
+  position: sticky;
+  top: tokens.$space-m;
+
+  @media screen and (max-width: 180ch) {
+    top: 0;
+    position: relative;
+  }
+}
+
+.ships {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(348px, 1fr));
+  gap: tokens.$space-m;
+  justify-items: center;
+  flex-grow: 1;
+  width: 100%;
+  padding-bottom: 60px;
+}
+
+.loader,
+.noShips {
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  color: tokens.$brand;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  translate: -50%;
+}

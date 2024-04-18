@@ -1,0 +1,54 @@
+@use 'src/styles/tokens';
+
+.root {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: calc(tokens.$space-l * 5);
+
+  @media screen and (max-width: 120ch) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.back {
+  width: fit-content;
+}
+
+.left,
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$space-m;
+}
+
+.right {
+  flex-grow: 1;
+}
+
+.description {
+  max-width: 90ch;
+  text-wrap: balance;
+}
+
+.image {
+  height: 25vw;
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+  border-radius: tokens.$radius;
+
+  @media screen and (max-width: 120ch) {
+    height: 50vw;
+  }
+}
+
+.info {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column: 2 / -1;
+  grid-row: 1 / -1;
+  gap: tokens.$space-xxs;
+  text-transform: uppercase;
+  height: fit-content;
+}

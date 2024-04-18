@@ -1,0 +1,43 @@
+@use "src/styles/tokens";
+
+.base {
+  background-color: tokens.$checkbox-bg;
+  border-radius: tokens.$radius;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 1px solid transparent;
+  color: tokens.$checkbox-check;
+
+  &:hover {
+    background-color: tokens.$checkbox-bg-hover;
+    border-color: tokens.$checkbox-border-hover;
+    color: tokens.$checkbox-check-hover;
+  }
+
+  &:has(input:checked) .icon {
+    display: block;
+  }
+
+  &:has(input:disabled) {
+    background-color: tokens.$checkbox-bg-disabled;
+    border-color: tokens.$checkbox-bg-disabled;
+    color: tokens.$checkbox-check-disabled;
+    cursor: default;
+  }
+
+  &:has(input:disabled) .icon {
+    color: tokens.$checkbox-check-disabled;
+  }
+
+  & .icon {
+    display: none;
+  }
+
+  & input {
+    display: none;
+  }
+}

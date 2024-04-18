@@ -1,0 +1,38 @@
+@use "src/styles/tokens";
+
+.base {
+  color: tokens.$brand;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--size);
+  height: var(--size);
+  animation: spin 0.7s linear infinite;
+
+  & svg {
+    width: 66.67%;
+    height: 66.67%;
+  }
+
+  &.s {
+    --size: 24px;
+  }
+
+  &.m {
+    --size: 48px;
+  }
+
+  &.l {
+    --size: 60px;
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

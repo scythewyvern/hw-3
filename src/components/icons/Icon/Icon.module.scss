@@ -1,0 +1,19 @@
+@use "src/styles/tokens";
+
+.base {
+  color: currentColor;
+  display: block;
+  flex-shrink: 0;
+}
+
+.primary {
+  color: tokens.$loader-bg-primary;
+}
+
+.secondary {
+  color: tokens.$loader-bg-secondary;
+}
+
+.accent {
+  color: tokens.$loader-bg-accent;
+}
