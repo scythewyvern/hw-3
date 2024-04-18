@@ -30,5 +30,5 @@ export async function getShips(limitSize: number, search?: string) {
 export async function getShip(id: string) {
   const shipDocRef = doc(db, 'ships', id);
 
-  return (await getDoc(shipDocRef)).data() as Ship;
+  return (await getDoc(shipDocRef)).data() as Ship | undefined;
 }
