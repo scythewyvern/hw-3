@@ -1,4 +1,4 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createHashRouter } from 'react-router-dom';
 
 import RootLayout, { rootLoader } from './pages/RootLayout';
 import ShipPage from './pages/Ship';
@@ -6,7 +6,7 @@ import { shipLoader } from './pages/Ship/shipLoader';
 import { shipsLoader } from './pages/Ships';
 import ShipsPage from './pages/Ships/Ships';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
   {
     path: '/',
     element: <RootLayout />,
