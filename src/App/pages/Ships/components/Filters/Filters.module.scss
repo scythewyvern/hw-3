@@ -1,0 +1,14 @@
+@use "src/styles/tokens";
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$space-l;
+}
+
+.activeOnly {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: tokens.$space-s;
+}

@@ -1,17 +1,17 @@
 @use "src/styles/tokens";
+@use "src/styles/mixins";
 
 .base {
+  @include mixins.square(var(--size));
+
   color: tokens.$brand;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: var(--size);
-  height: var(--size);
   animation: spin 0.7s linear infinite;
 
   & svg {
-    width: 66.67%;
-    height: 66.67%;
+    @include mixins.square(66.67%);
   }
 
   &.s {

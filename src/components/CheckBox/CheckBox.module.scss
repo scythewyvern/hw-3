@@ -1,10 +1,11 @@
+@use "src/styles/mixins";
 @use "src/styles/tokens";
 
 .base {
+  @include mixins.square(40px);
+
   background-color: tokens.$checkbox-bg;
   border-radius: tokens.$radius;
-  width: 40px;
-  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;

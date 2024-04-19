@@ -1,6 +1,8 @@
 import classNames from 'classnames';
 import * as React from 'react';
 
+import { useClickOutside } from 'utils/useClickOutside';
+
 import Input from '../Input';
 import ArrowDownIcon from '../icons/ArrowDownIcon';
 
@@ -41,7 +43,7 @@ const MultiDropdown = ({
   const [selected, setSelected] = React.useState<Option[]>(value);
   const [query, setQuery] = React.useState('');
 
-  const title = selected.length ? getTitle(selected) : '';
+  const title = selected?.length ? getTitle(selected) : '';
   const filteredOptions = options.filter((option) =>
     option.value.toLowerCase().includes(query.toLowerCase())
   );
@@ -54,7 +56,7 @@ const MultiDropdown = ({
   const handleOptionSelect = (option: Option, isSelected: boolean) => {
     if (!isSelected) {
       setSelected([...selected, option]);
-      onChange([option]);
+      onChange([...selected, option]);
     } else {
       const newSelected = selected.filter(({ key }) => key !== option.key);
       setSelected(newSelected);
@@ -107,19 +109,3 @@ const MultiDropdown = ({
 };
 
 export default MultiDropdown;
-
-function useClickOutside(ref: React.RefObject<HTMLElement>, callback: () => void) {
-  React.useEffect(() => {
-    const handleClick = (event: MouseEvent) => {
-      if (ref.current && !ref.current.contains(event.target as Node)) {
-        callback();
-      }
-    };
-
-    document.addEventListener('click', handleClick);
-
-    return () => {
-      document.removeEventListener('click', handleClick);
-    };
-  }, [callback, ref]);
-}

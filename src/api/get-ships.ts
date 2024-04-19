@@ -1,6 +1,4 @@
 import {
-  type DocumentData,
-  type Query,
   collection,
   getDocs,
   limit,
@@ -12,16 +10,39 @@ import {
 import { Ship } from 'types/ship';
 import { db } from './firebase';
 
-export async function getShips(limitSize: number, search?: string) {
-  const shipsRef = collection(db, 'ships');
-  let q: Query<DocumentData, DocumentData>;
+type GetShipsParams = {
+  limitSize: number;
+  search?: string;
+  activeOnly?: string | null;
+  shipTypes?: string[];
+};
 
-  if (search) {
-    q = query(shipsRef, where('name', '==', search), limit(limitSize));
-  } else {
-    q = query(shipsRef, limit(limitSize));
+export async function getShips({
+  limitSize,
+  search,
+  activeOnly,
+  shipTypes,
+}: GetShipsParams) {
+  const shipsRef = collection(db, 'ships');
+  const constraints = [];
+
+  if (activeOnly === 'true') {
+    constraints.push(where('active', '==', activeOnly === 'true'));
   }
 
+  if (shipTypes && shipTypes.length > 0 && shipTypes.every(Boolean)) {
+    constraints.push(where('type', 'in', shipTypes));
+  }
+
+  if (search) {
+    constraints.push(where('name', '==', search));
+  }
+
+  if (limitSize) {
+    constraints.push(limit(limitSize));
+  }
+
+  const q = query(shipsRef, ...constraints);
   const ships = await getDocs(q);
 
   return ships.docs.map((doc) => doc.data()) as Ship[];

@@ -1,20 +1,10 @@
+@use "./palette" as *;
+@use "./spacing" as *;
+
+@forward "./palette";
+@forward "./spacing";
+
 $radius: 8px;
-
-$space-xxs: 8px;
-$space-xs: 12px;
-$space-s: 14px;
-$space-m: 16px;
-$space-l: 20px;
-$space-xl: 24px;
-
-$white: #fcfcfd;
-$black: #1c2024;
-$brand: #ab4aba;
-$brand-hover: #a144af;
-$brand-active: #953ea3;
-$slate-3: #f0f0f3;
-$slate-9: #8b8d98;
-$slate-11: #60646c;
 
 $shadow: 0 4px 10px 0 rgba($black, 0.25);
 

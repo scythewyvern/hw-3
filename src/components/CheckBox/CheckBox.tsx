@@ -16,7 +16,6 @@ export default function CheckBox({
   onChange,
   className,
   disabled = false,
-  checked = false,
   ...props
 }: CheckBoxProps) {
   return (
@@ -26,7 +25,6 @@ export default function CheckBox({
         className={styles.input}
         type="checkbox"
         onChange={(e) => onChange(e.target.checked)}
-        checked={checked}
         disabled={disabled}
         {...props}
       />
