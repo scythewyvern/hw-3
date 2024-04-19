@@ -4,6 +4,6 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: '/hm-3/',
+  base: '/hw-3/',
   plugins: [react(), tsconfigPaths()],
 });
