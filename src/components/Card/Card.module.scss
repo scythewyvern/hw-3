@@ -1,0 +1,45 @@
+@use 'src/styles/tokens';
+
+.base {
+  background-color: tokens.$card-bg;
+  border-radius: tokens.$radius;
+  max-width: 348px;
+  width: 100%;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease;
+
+  &:hover {
+    box-shadow: tokens.$shadow;
+  }
+}
+
+.picture {
+  display: block;
+  width: 348px;
+  height: 348px;
+  overflow: hidden;
+  object-fit: cover;
+  background-color: tokens.$card-image-bg;
+  border-radius: tokens.$radius;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$space-l;
+  padding-block: tokens.$space-xl;
+  padding-inline: tokens.$space-xs;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: tokens.$space-xxs;
+}
+
+.footer {
+  display: flex;
+  gap: tokens.$space-xxs;
+  align-items: center;
+  justify-content: space-between;
+}

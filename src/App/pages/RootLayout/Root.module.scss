@@ -1,0 +1,10 @@
+@use 'src/styles/tokens';
+
+.root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+  max-width: calc(100vw - tokens.$space-m * 2);
+  margin-inline: auto;
+  padding: tokens.$space-m;
+}

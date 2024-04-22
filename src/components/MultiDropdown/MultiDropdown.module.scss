@@ -1,0 +1,61 @@
+@use "src/styles/tokens";
+@use "src/styles/mixins";
+
+.root {
+  --input-width: 368px;
+
+  width: var(--input-width);
+  position: relative;
+}
+
+.trigger {
+  @include mixins.square(24px);
+
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+
+  &:disabled {
+    cursor: default;
+  }
+}
+
+.options {
+  border-radius: tokens.$radius;
+  border: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  width: var(--input-width);
+  box-shadow: tokens.$dropdown-options-shadow;
+  background-color: tokens.$dropdown-options-bg;
+  transform: translateY(tokens.$space-xxs);
+  z-index: 40;
+}
+
+.option {
+  background-color: transparent;
+  border: none;
+  padding-inline: tokens.$space-xs;
+  padding-block: tokens.$space-s;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    color: tokens.$text-secondary;
+  }
+
+  &.selected {
+    color: tokens.$brand;
+  }
+
+  input {
+    display: none;
+  }
+}

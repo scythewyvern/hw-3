@@ -1,0 +1,36 @@
+@use 'src/styles/tokens';
+
+.root {
+  --input-width: 368px;
+
+  width: var(--input-width);
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: tokens.$space-xxs;
+  background-color: tokens.$input-bg;
+  padding-inline: tokens.$space-xs;
+  border-radius: tokens.$radius;
+  font-size: 16px;
+  line-height: 20px;
+
+  &:has(input:focus) {
+    outline-style: solid;
+    outline-color: tokens.$input-border-focus;
+  }
+
+  & input {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    padding-block: tokens.$space-s;
+    color: tokens.$input-text-focus;
+    flex-grow: 1;
+    width: 100%;
+  }
+
+  & input::placeholder {
+    color: tokens.$input-placeholder;
+  }
+}

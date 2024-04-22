@@ -1,0 +1,6 @@
+@mixin square($size) {
+  width: $size;
+  height: $size;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0;
+}

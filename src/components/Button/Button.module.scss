@@ -1,0 +1,40 @@
+@use 'src/styles/tokens';
+
+.base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: tokens.$space-xxs;
+  border-radius: tokens.$radius;
+  border: none;
+  padding: tokens.$space-s tokens.$space-l;
+  min-height: 52px;
+  background-color: tokens.$button-bg;
+  color: tokens.$button-text;
+  cursor: pointer;
+  user-select: none;
+
+  &:hover {
+    background-color: tokens.$button-bg-hover;
+    color: tokens.$button-text-hover;
+  }
+
+  &:active {
+    background-color: tokens.$button-bg-active;
+    color: tokens.$button-text-active;
+  }
+
+  &.disabled {
+    cursor: default;
+    background-color: tokens.$button-bg-disabled;
+    color: tokens.$button-text-disabled;
+  }
+
+  &:disabled {
+    pointer-events: none;
+  }
+
+  .loader {
+    color: currentColor;
+  }
+}

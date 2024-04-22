@@ -1,0 +1,13 @@
+@use "src/styles/tokens";
+
+.loader {
+  color: tokens.$brand;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  translate: -50%;
+  grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

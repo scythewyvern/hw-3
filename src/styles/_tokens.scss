@@ -1,0 +1,52 @@
+@use "./palette" as *;
+@use "./spacing" as *;
+
+@forward "./palette";
+@forward "./spacing";
+
+$radius: 8px;
+
+$shadow: 0 4px 10px 0 rgba($black, 0.25);
+
+$text-primary: $black;
+$text-secondary: $slate-11;
+$text-accent: $brand;
+
+$loader-bg-primary: $text-primary;
+$loader-bg-secondary: $text-secondary;
+$loader-bg-accent: $text-accent;
+
+$button-bg: $brand;
+$button-text: $white;
+
+$button-bg-hover: $brand-hover;
+$button-text-hover: $white;
+
+$button-bg-active: $brand-active;
+$button-text-active: $white;
+
+$button-bg-disabled: $slate-9;
+$button-text-disabled: $white;
+
+$input-bg: $white;
+$input-placeholder: $slate-11;
+$input-text-focus: $black;
+$input-border-focus: $brand;
+
+$card-bg: $white;
+$card-image-bg: $slate-9;
+
+$checkbox-bg: $white;
+$checkbox-border: $white;
+$checkbox-check: $brand;
+
+$checkbox-bg-hover: $white;
+$checkbox-border-hover: $brand;
+$checkbox-check-hover: $brand;
+
+$checkbox-bg-disabled: rgba($white, 0.5);
+$checkbox-border-disabled: transparent;
+$checkbox-check-disabled: rgba($black, 0.2);
+
+$dropdown-options-bg: $white;
+$dropdown-options-shadow: $shadow;
